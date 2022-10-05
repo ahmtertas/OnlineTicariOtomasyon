@@ -1,0 +1,39 @@
+﻿@using OnlineTicariOtomasyon.Models.Classes
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>DepartmanPersonelSatis</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Adı: @ViewBag.dpers</li>
+</ol>
+<table class="table table-condensed table-bordered table-striped">
+    <tr>
+        <th>Satış Id</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.SatisId</th>
+            <th>@x.Urun.UrunAdı</th>
+            <th>@x.Cari.CariAdı  @x.Cari.CariSoyadı </th>
+            <th>@x.Fiyat</th>
+            <th>@x.Adet</th>
+            <th>@x.ToplamTutar</th>
+            <th>@x.Tarih</th>
+            <th><a href="#" class="btn btn-default bg-secondary glyphicon-text-color" style="color:white;">Yazdır</a></th>
+        </tr>
+    }
+
+</table>

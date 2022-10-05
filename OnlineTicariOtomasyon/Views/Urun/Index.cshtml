@@ -1,0 +1,39 @@
+﻿@using OnlineTicariOtomasyon.Models.Classes;
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ürün</th>
+        <th>Marka</th>
+        <th>Stok</th>
+        <th>Alış Fiyatı</th>
+        <th>Satış Fiyatı</th>
+        <th>Kategori</th>
+        <th>Görsel</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var urun in Model)
+            {
+                <tr>
+                    <td>@urun.UrunId</td>
+                    <td>@urun.UrunAdı</td>
+                    <td>@urun.Marka</td>
+                    <td>@urun.Stok</td>
+                    <td>@urun.AlisFiyati</td>
+                    <td>@urun.SatisFiyati</td>
+                    <td>@urun.Kategori.KategoriAdı</td>
+                    <td>@urun.UrunImage</td>
+                    <td><a href="/Urun/UrunSil/@urun.UrunId" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Urun/UrunGetir/@urun.UrunId" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+</table>
+<a href="/Urun/YeniUrun" class="btn btn-info w-25">Yeni Ürün</a>
+

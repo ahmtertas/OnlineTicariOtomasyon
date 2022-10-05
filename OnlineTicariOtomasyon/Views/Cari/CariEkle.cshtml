@@ -1,0 +1,25 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Cari
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Cari Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.CariAdı)
+    @Html.TextBoxFor(x => x.CariAdı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSoyadı)
+    @Html.TextBoxFor(x => x.CariSoyadı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSehir)
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariMail)
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

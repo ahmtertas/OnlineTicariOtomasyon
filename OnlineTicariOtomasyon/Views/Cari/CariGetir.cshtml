@@ -1,0 +1,29 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Cari
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.CariId)
+    @Html.LabelFor(x => x.CariAdı)
+    @Html.TextBoxFor(x => x.CariAdı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSoyadı)
+    @Html.TextBoxFor(x => x.CariSoyadı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSehir)
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariMail)
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+}
+
+
+

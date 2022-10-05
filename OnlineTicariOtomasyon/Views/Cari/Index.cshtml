@@ -1,0 +1,36 @@
+﻿@using OnlineTicariOtomasyon.Models.Classes
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered table-striped table-hover">
+    <tr style="background-color:darkslategray; color:white;">
+        <th>Cari Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.CariId</th>
+            <th>@x.CariAdı</th>
+            <th>@x.CariSoyadı</th>
+            <th>@x.CariSehir</th>
+            <th>@x.CariMail</th>
+            <th><a href="/Cari/CariSil/@x.CariId" class="btn btn-danger">Sil</a></th>
+            <th><a href="/Cari/CariGetir/@x.CariId" class="btn btn-success">Güncelle</a></th>
+            <th><a href="/Cari/CariSatisGecmisi/@x.CariId" class="btn btn-warning">Satış Geçmişi</a></th>
+        </tr>
+    }
+
+</table>
+<a href="/Cari/CariEkle" class="btn btn-info w-25">Yeni Cari Ekle</a>
+
