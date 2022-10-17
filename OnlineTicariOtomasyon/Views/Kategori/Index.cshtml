@@ -1,5 +1,8 @@
 ﻿@using OnlineTicariOtomasyon.Models.Classes
-@model List<Kategori>
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<Kategori>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,7 +11,6 @@
 <table class="table table-bordered" style="margin-top:20px; margin-left: 20px; margin-right: 20px;">
     
     <tr>
-        <th>Id</th>
         <th>Kategori Adı</th>
         <th>Sil</th>
         <th>Güncelle</th>
@@ -19,9 +21,6 @@
         
         <tr>
             <td>
-                @kategori.KategoriId
-            </td>
-            <td>
                 @kategori.KategoriAdı
             </td>
             <td><a href="/Kategori/KategoriSil/@kategori.KategoriId" class="btn btn-danger">Sil</a></td>
@@ -30,4 +29,5 @@
     }
     
 </table>
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new { sayfa }))
 <a href="/Kategori/KategoriEkle" class="btn btn-primary w-25">Kategori Ekle</a>

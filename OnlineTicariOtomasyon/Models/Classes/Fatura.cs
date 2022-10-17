@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls.WebParts;
 
 namespace OnlineTicariOtomasyon.Models.Classes
 {
@@ -12,9 +13,9 @@ namespace OnlineTicariOtomasyon.Models.Classes
         [Key]
         public int FaturaId { get; set; }
 
-        [Column(TypeName = "char")]
+        [Column(TypeName = "Varchar")]
         [StringLength(1)]
-        public char FaturaSeriNo { get; set; }
+        public string FaturaSeriNo { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(6)]
@@ -24,7 +25,11 @@ namespace OnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
         public string VergiDairesi { get; set; }
-        public DateTime Saat { get; set; }
+
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(6)]
+        public string Saat { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
@@ -34,7 +39,7 @@ namespace OnlineTicariOtomasyon.Models.Classes
         [StringLength(30)]
         public string TeslimAlan { get; set; }
 
-
+        public decimal Toplam { get; set; }
         public ICollection<FaturaKalem> FaturaKalems { get; set; }
     }
 }

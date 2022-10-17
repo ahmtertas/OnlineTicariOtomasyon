@@ -10,7 +10,7 @@ namespace OnlineTicariOtomasyon.Controllers
 {
     public class DepartmanController : Controller
     {
-        // GET: Kategori
+        // GET: Departman
         Context context = new Context();
         public ActionResult Index()
         {
@@ -26,6 +26,7 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult DepartmanEkle(Departman departman)
         {
             context.Departmans.Add(departman);
+            departman.Durum = true;
             context.SaveChanges();
             return RedirectToAction("Index");
         }

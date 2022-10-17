@@ -40,7 +40,7 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult CariGetir(int id)
         {
             var currentGetir = context.Caris.Find(id);
-            return View("CariGetir",currentGetir);
+            return View("CariGetir", currentGetir);
         }
         public ActionResult CariGuncelle(Cari cari)
         {
@@ -52,6 +52,14 @@ namespace OnlineTicariOtomasyon.Controllers
             currentGuncelle.CariMail = cari.CariMail;
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult MusteriSatis(int id)
+        {
+            var degerler = context.SatisHarekets.Where(x => x.CariId == id).ToList();
+            var cariAd = context.Caris.Where(x => x.CariId == id)
+                .Select(y=>y.CariAdı + " " + y.CariSoyadı).FirstOrDefault();
+            ViewBag.cariAdi = cariAd;
+            return View(degerler);
         }
 
     }

@@ -18,6 +18,7 @@ namespace OnlineTicariOtomasyon.Models.Classes
         public int Miktar { get; set; }
         public decimal BrimFiyat { get; set; }
         public decimal Tutar { get; set; }
-        public Fatura Fatura { get; set; }
+        public int FaturaId { get; set; }
+        public virtual Fatura Fatura { get; set; }
     }
 }

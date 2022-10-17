@@ -1,0 +1,30 @@
+﻿@model OnlineTicariOtomasyon.Models.Classes.Personel
+
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Personel Güncelleme</h2>
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.PersonelId)
+    @Html.LabelFor(x => x.PersonelAdı)
+    @Html.TextBoxFor(x => x.PersonelAdı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelSoyadı)
+    @Html.TextBoxFor(x => x.PersonelSoyadı, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelImage)
+    <input type="file" name="PersonelImage"/>
+    <br />
+    @Html.LabelFor(x => x.Departman.DepartmanId)
+    @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.dgr1,
+    new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+}

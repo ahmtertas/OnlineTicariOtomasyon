@@ -6,14 +6,13 @@
 }
 
 <br />
-<h2>DepartmanPersonelSatis</h2>
+<h2>Personel Satis</h2>
 <br />
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Personel Adı: @ViewBag.dpers</li>
 </ol>
 <table class="table table-condensed table-bordered table-striped">
     <tr>
-        <th>Satış Id</th>
         <th>Ürün</th>
         <th>Cari</th>
         <th>Fiyat</th>
@@ -25,10 +24,9 @@
     @foreach (var x in Model)
     {
         <tr>
-            <th>@x.SatisId</th>
             <th>@x.Urun.UrunAdı</th>
             <th>@x.Cari.CariAdı  @x.Cari.CariSoyadı </th>
-            <th>@x.Fiyat</th>
+            <th>@x.Fiyat ₺</th>
             <th>@x.Adet</th>
             <th>@x.ToplamTutar</th>
             <th>@x.Tarih</th>

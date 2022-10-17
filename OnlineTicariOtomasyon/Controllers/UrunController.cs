@@ -12,10 +12,14 @@ namespace OnlineTicariOtomasyon.Controllers
     {
         // GET: Kategori
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string ara)
         {
-            var urunler = context.Uruns.Where(x=>x.Durum == true).ToList();
-            return View(urunler);
+            var urunler = from x in context.Uruns select x;
+            if (!string.IsNullOrEmpty(ara))
+            {
+                urunler = urunler.Where(y => y.UrunAdı.Contains(ara));
+            }
+            return View(urunler.ToList());
         }
         [HttpGet]
         public ActionResult YeniUrun()
@@ -33,6 +37,7 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult YeniUrun(Urun urun)
         {
             context.Uruns.Add(urun);
+            urun.Durum = true;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -71,7 +76,41 @@ namespace OnlineTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult UrunListesi()
+        {
+            var degerler = context.Uruns.ToList();
+            return View(degerler);
+        }
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {       
+            List<SelectListItem> deger2 = (from x in context.Caris.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CariAdı + " " + x.CariSoyadı,
+                                               Value = x.CariId.ToString()
+                                           }).ToList();
+            List<SelectListItem> deger3 = (from x in context.Personels.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.PersonelAdı + " " + x.PersonelSoyadı,
+                                               Value = x.PersonelId.ToString()
+                                           }).ToList();
+            var deger1 = context.Uruns.Find(id);
+            ViewBag.dgr1 = deger1.UrunId;
+            ViewBag.fiyat = deger1.SatisFiyati;
+            ViewBag.dgr3 = deger3;
+            return View();
 
+        }
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket satisHareket)
+        {
+            satisHareket.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            context.SatisHarekets.Add(satisHareket);
+            context.SaveChanges();
+            return RedirectToAction("Index","Satis");
+        }
 
     }
 }
