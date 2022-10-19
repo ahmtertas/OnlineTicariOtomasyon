@@ -52,5 +52,27 @@ namespace OnlineTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        public ActionResult Deneme()
+        {
+            SiralamaSinifi siralamaSinifi = new SiralamaSinifi();
+            siralamaSinifi.Kategoriler = new SelectList(context.Kategoris,"KategoriId","KategoriAdı");
+            siralamaSinifi.Urunler = new SelectList(context.Uruns,"UrunId","UrunAdı");
+            return View(siralamaSinifi);
+        }
+
+        public JsonResult UrunGetir(int id)
+        {
+            var urunListesi = (from x in context.Uruns
+                               join y in context.Kategoris
+                               on x.Kategori.KategoriId equals y.KategoriId
+                               where x.Kategori.KategoriId == id
+                               select new
+                               {
+                                   Text = x.UrunAdı,
+                                   Value = x.UrunId.ToString()
+                               });
+            return Json(urunListesi, JsonRequestBehavior.AllowGet);
+        }
     }
 }

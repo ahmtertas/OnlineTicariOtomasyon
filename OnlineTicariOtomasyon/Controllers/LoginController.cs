@@ -9,6 +9,7 @@ using OnlineTicariOtomasyon.Models.Classes;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login

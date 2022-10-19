@@ -1,0 +1,46 @@
+﻿@using OnlineTicariOtomasyon.Models.Classes
+@model List<Mesajlar>
+@foreach(var x in Model) {
+<div class="timeline timeline-inverse">
+
+    <!-- timeline time label -->
+
+    <div class="time-label">
+
+        <span class="bg-warning">
+
+            @x.Tarih.ToShortDateString() 
+
+        </span>
+
+    </div>
+
+    <div>
+
+        <i class="fas fa-envelope bg-primary"></i>
+
+        <div class="timeline-item">
+
+            <span class="time"><i class="far fa-clock"></i> @x.Tarih.ToString("HH:mm")</span>
+
+            <h3 class="timeline-header" style="color:rgb(0 148 255)">@x.Konu</h3>
+
+            <div class="timeline-body">
+
+               @x.Icerik
+
+            </div>
+
+            <div class="timeline-footer">
+
+                <a href="#" class="btn btn-primary btn-sm">Read more</a>
+
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+}

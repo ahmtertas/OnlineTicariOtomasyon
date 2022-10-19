@@ -1,0 +1,29 @@
+﻿@using OnlineTicariOtomasyon.Models.Classes
+@model List<KargoTakip>
+
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered table-striped table-hover">
+    <tr style="background-color:darkslategray; color:white;">
+        <th>Adımlar</th>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+
+    </tr>
+    @{int siraNo = 0; } 
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@{siraNo++;} @siraNo</td>
+            <th>@x.Aciklama</th>
+            <th>@x.TarihZaman</th>
+        </tr>
+    }
+
+</table>
+
+

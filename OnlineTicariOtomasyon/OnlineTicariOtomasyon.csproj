@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\AlertlerController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\MesajController.cs" />
     <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\QRController.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Context.cs" />
+    <Compile Include="Models\Classes\ForFatura.cs" />
     <Compile Include="Models\Classes\GrafikGoogle.cs" />
     <Compile Include="Models\Classes\KargoTakip.cs" />
     <Compile Include="Models\Classes\KargoDetay.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="Models\Classes\Cari.cs" />
     <Compile Include="Models\Classes\Departman.cs" />
     <Compile Include="Models\Classes\Mesajlar.cs" />
+    <Compile Include="Models\Classes\SiralamaSinifi.cs" />
     <Compile Include="Models\Classes\ToDoList.cs" />
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\Fatura.cs" />
@@ -185,6 +188,7 @@
     <Compile Include="Models\Classes\UrunListeleme.cs" />
     <Compile Include="Models\Classes\Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roller\AdminRolProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\.gitignore" />
@@ -241,6 +245,7 @@
     <Content Include="AdminLTE-3.0.4\dist\img\credit\visa.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\default-150x150.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\icons.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\defaultmailphoto.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo1.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo3.jpg" />
@@ -2945,6 +2950,16 @@
     <Content Include="Views\Grafik\Veriler.cshtml" />
     <Content Include="Views\Grafik\GrafikGoogle.cshtml" />
     <Content Include="Views\CariPanel\GelenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\MesajDetay.cshtml" />
+    <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
+    <Content Include="Views\CariPanel\KargoTakip.cshtml" />
+    <Content Include="Views\CariPanel\CariKargoTakip.cshtml" />
+    <Content Include="Views\CariPanel\HesapGuncelle.cshtml" />
+    <Content Include="Views\CariPanel\Duyurular.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Kategori\Deneme.cshtml" />
+    <Content Include="Views\Fatura\Dinamik.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

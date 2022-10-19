@@ -8,6 +8,7 @@ using OnlineTicariOtomasyon.Models.Classes;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class DepartmanController : Controller
     {
         // GET: Departman
@@ -17,11 +18,14 @@ namespace OnlineTicariOtomasyon.Controllers
             var degerler = context.Departmans.Where(x=>x.Durum == true).ToList();
             return View(degerler);
         }
+
+        [Authorize(Roles = "A")]
         [HttpGet]
         public ActionResult DepartmanEkle()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult DepartmanEkle(Departman departman)
         {
